@@ -14,4 +14,12 @@ export class CreateAgentAnalyticsReporterDto {
   @IsEnum(AnalyticsPeriod)
   @IsOptional()
   period?: AnalyticsPeriod;
+
+  @IsString()
+  @IsOptional()
+  sessionId?: string;
+
+  @IsString()
+  @IsOptional()
+  userId?: string;
 }

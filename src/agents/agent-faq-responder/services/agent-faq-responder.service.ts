@@ -28,4 +28,3 @@ export class AgentFaqResponderService {
     return this.repo.findOneBy({ id });
   }
 }
-

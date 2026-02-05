@@ -13,14 +13,25 @@ async function checkPostgres() {
   let client;
   try {
     if (!config.host || !config.user || !config.password || !config.database) {
-      throw new Error('DB_HOST, DB_USERNAME, DB_PASSWORD o DB_NAME no están presentes en el entorno');
+      throw new Error(
+        'DB_HOST, DB_USERNAME, DB_PASSWORD o DB_NAME no est n presentes en el entorno',
+      );
     }
     client = new Client(config);
     await client.connect();
     await client.query('SELECT NOW()');
-    logSystemCheck('Conexión a PostgreSQL exitosa usando variables individuales', 'PostgreSQL', 'OK');
+    logSystemCheck(
+      'Conexi n a PostgreSQL exitosa usando variables individuales',
+      'PostgreSQL',
+      'OK',
+    );
   } catch (error) {
-    logSystemCheck('Fallo de conexión a PostgreSQL (variables individuales)', 'PostgreSQL', 'FAIL', error);
+    logSystemCheck(
+      'Fallo de conexi n a PostgreSQL (variables individuales)',
+      'PostgreSQL',
+      'FAIL',
+      error,
+    );
   } finally {
     if (client) await client.end();
   }

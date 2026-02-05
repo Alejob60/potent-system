@@ -1,0 +1,9 @@
+{
+  "message": "Quiero un video corto para TikTok sobre mi producto nuevo",
+  "context": {
+    "sessionId": "chat-test-1",
+    "language": "es",
+    "negocio": "Mi Empresa",
+    "objetivo": "promocionar producto"
+  }
+}

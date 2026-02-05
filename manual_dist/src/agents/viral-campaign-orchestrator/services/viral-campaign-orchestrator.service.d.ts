@@ -1,0 +1,36 @@
+import { Repository } from 'typeorm';
+import { ViralCampaign } from '../entities/viral-campaign.entity';
+import { ActivateCampaignDto } from '../dto/activate-campaign.dto';
+import { HttpService } from '@nestjs/axios';
+export declare class ViralCampaignOrchestratorService {
+    private readonly campaignRepository;
+    private readonly httpService;
+    private readonly logger;
+    constructor(campaignRepository: Repository<ViralCampaign>, httpService: HttpService);
+    activateCampaign(activateCampaignDto: ActivateCampaignDto, userId: string): Promise<any>;
+    executeStage(campaignId: string, stageOrder: number): Promise<void>;
+    getCampaignStatus(campaignId: string): Promise<any>;
+    getAllCampaignsBySession(sessionId: string): Promise<ViralCampaign[]>;
+    updateCampaignMetrics(campaignId: string, metrics: any): Promise<void>;
+    private defineScrumStages;
+    private executeTrendScannerStage;
+    private executeScrumStrategyStage;
+    private executeVideoScriptorStage;
+    private executeCreativeSynthesizerStage;
+    private executeContentEditorStage;
+    private executePostSchedulerStage;
+    private executeCalendarStage;
+    private executeAnalyticsReporterStage;
+    private getStageStatus;
+    private getCampaignStatusForNextStage;
+    private addEmotionalNarrative;
+    private generateContextualSuggestions;
+    private generateSasUrl;
+    private generateSprints;
+    private generateDeliverables;
+    private editAssetsForPlatforms;
+    private getPlatformRequirements;
+    private generateCalendarView;
+    private generateReminders;
+    private notifyFrontDeskCampaignCompletion;
+}

@@ -1,4 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from 'typeorm';
 
 @Entity('agent_trend_scans')
 export class AgentTrendScanner {
@@ -10,6 +15,18 @@ export class AgentTrendScanner {
 
   @Column('jsonb', { nullable: true })
   trends: any;
+
+  @Column({ nullable: true })
+  platform?: string;
+
+  @Column({ nullable: true })
+  sessionId?: string;
+
+  @Column({ nullable: true })
+  userId?: string;
+
+  @Column({ default: 'pending' })
+  status: string;
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;

@@ -1,0 +1,33 @@
+import { OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import { RedisConfigService } from './redis-config.service';
+export declare class RedisService implements OnModuleInit, OnModuleDestroy {
+    private readonly configService;
+    private readonly logger;
+    private client;
+    constructor(configService: RedisConfigService);
+    onModuleInit(): Promise<void>;
+    onModuleDestroy(): Promise<void>;
+    private isClientReady;
+    private retryWithBackoff;
+    get(key: string): Promise<string | null>;
+    set(key: string, value: string, ttlSeconds?: number): Promise<void>;
+    setex(key: string, ttlSeconds: number, value: string): Promise<void>;
+    del(key: string): Promise<void>;
+    exists(key: string): Promise<boolean>;
+    expire(key: string, ttlSeconds: number): Promise<void>;
+    private getTenantScopedKey;
+    getForTenant(tenantId: string, key: string): Promise<string | null>;
+    setForTenant(tenantId: string, key: string, value: string, ttlSeconds?: number): Promise<void>;
+    delForTenant(tenantId: string, key: string): Promise<void>;
+    existsForTenant(tenantId: string, key: string): Promise<boolean>;
+    expireForTenant(tenantId: string, key: string, ttlSeconds: number): Promise<void>;
+    getTenantKeys(tenantId: string): Promise<string[]>;
+    deleteTenantKeys(tenantId: string): Promise<number>;
+    rpush(key: string, ...elements: string[]): Promise<number>;
+    lrange(key: string, start: number, stop: number): Promise<string[]>;
+    lrem(key: string, count: number, element: string): Promise<number>;
+    keys(pattern: string): Promise<string[]>;
+    publish(channel: string, message: string): Promise<number>;
+    subscribe(channel: string, callback: (message: string) => void): Promise<void>;
+    unsubscribe(channel: string): Promise<void>;
+}

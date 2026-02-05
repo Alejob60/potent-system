@@ -1,0 +1,43 @@
+import { Repository } from 'typeorm';
+import { FrontDeskConversation } from '../entities/front-desk-conversation.entity';
+import { ContextCompressionService } from './context-compression.service';
+import { CreativeSynthesizerIntegrationService } from './creative-synthesizer.integration.service';
+export declare class FrontDeskService {
+    private readonly conversationRepository;
+    private readonly contextCompressionService;
+    private readonly creativeSynthesizerIntegrationService;
+    constructor(conversationRepository: Repository<FrontDeskConversation>, contextCompressionService: ContextCompressionService, creativeSynthesizerIntegrationService: CreativeSynthesizerIntegrationService);
+    processMessage(message: string, context?: {
+        sessionId?: string;
+        userId?: string;
+        language?: string;
+    }): Promise<any>;
+    getAgentStatus(): Promise<any>;
+    private analyzeIntentWithAI;
+    private extractEntitiesWithAI;
+    private generateContextualResponseWithAI;
+    private getConversationHistory;
+    private detectEmotionWithAI;
+    private analyzeIntentWithHistory;
+    private extractEntities;
+    private isLikelyTopicResponse;
+    private extractTopic;
+    private mergeWithPreviousInfo;
+    private determineTargetAgent;
+    private identifyMissingInfo;
+    private generateClarifyingQuestions;
+    private getEmotionalTone;
+    private getObjectiveAction;
+    private generateContextualResponse;
+    private generateVideoResponse;
+    private generatePostResponse;
+    private generateTrendResponse;
+    private generateFaqResponse;
+    private generateReportResponse;
+    private getObjectiveDescription;
+    private getClarifyingQuestion;
+    findAll(): Promise<FrontDeskConversation[]>;
+    findOne(id: string): Promise<FrontDeskConversation | null>;
+    findBySession(sessionId: string): Promise<FrontDeskConversation[]>;
+    sendToCreativeSynthesizer(sessionId: string, userId: string, intention: string, emotion: string, entities: any, integrationId?: string, integrationStatus?: string): Promise<any>;
+}

@@ -1,0 +1,40 @@
+import { HttpService } from '@nestjs/axios';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { PaymentInitiateDto, WompiWebhookEvent } from '../interfaces/payment.interface';
+import { TenantContextStore } from '../../meta-agent/security/tenant-context.store';
+import { RedisService } from '../../common/redis/redis.service';
+import { WebhookIdempotencyService } from './webhook-idempotency.service';
+import { WompiSecurityService } from './wompi-security.service';
+import { ChatNotificationService } from '../../chat/chat-notification.service';
+import { ProfessionalLoggerService } from '../../common/logging/professional-logger.service';
+export declare class PaymentService {
+    private readonly httpService;
+    private readonly tenantContextStore;
+    private readonly redisService;
+    private readonly webhookIdempotencyService;
+    private readonly wompiSecurityService;
+    private readonly chatNotificationService;
+    private readonly professionalLoggerService;
+    private readonly eventEmitter;
+    private readonly logger;
+    private readonly wompiPublicKey;
+    private readonly wompiPrivateKey;
+    private readonly wompiEventsSecret;
+    private readonly wompiIntegrityKey;
+    private readonly metaAgentUrl;
+    constructor(httpService: HttpService, tenantContextStore: TenantContextStore, redisService: RedisService, webhookIdempotencyService: WebhookIdempotencyService, wompiSecurityService: WompiSecurityService, chatNotificationService: ChatNotificationService, professionalLoggerService: ProfessionalLoggerService, eventEmitter: EventEmitter2);
+    initiatePayment(dto: PaymentInitiateDto): Promise<{
+        checkoutUrl: string;
+        reference: string;
+    }>;
+    handleWebhook(event: WompiWebhookEvent, signature: string, timestamp: string): Promise<boolean>;
+    private validateWebhookSignature;
+    private validateBusinessData;
+    private isValidEmail;
+    private getUserReputation;
+    private extractAmountFromPriceRange;
+    private updateMetaAgent;
+    private notifyChat;
+    private sendRealTimeNotification;
+    private logProfessional;
+}

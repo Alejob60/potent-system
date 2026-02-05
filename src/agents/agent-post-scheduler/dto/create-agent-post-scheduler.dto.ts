@@ -1,4 +1,4 @@
-import { IsString, IsDateString, IsNotEmpty } from 'class-validator';
+import { IsString, IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateAgentPostSchedulerDto {
   @IsString()
@@ -8,4 +8,12 @@ export class CreateAgentPostSchedulerDto {
   @IsDateString()
   @IsNotEmpty()
   scheduledAt: string;
+
+  @IsString()
+  @IsOptional()
+  sessionId?: string;
+
+  @IsString()
+  @IsOptional()
+  userId?: string;
 }

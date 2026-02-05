@@ -1,4 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from 'typeorm';
 
 @Entity('agent_analytics_reports')
 export class AgentAnalyticsReporter {
@@ -13,6 +18,15 @@ export class AgentAnalyticsReporter {
 
   @Column('jsonb')
   reportData: any;
+
+  @Column({ nullable: true })
+  sessionId?: string;
+
+  @Column({ nullable: true })
+  userId?: string;
+
+  @Column({ default: 'pending' })
+  status: string;
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;

@@ -30,8 +30,8 @@ export function logSystemCheck(
   fs.appendFileSync(path.resolve(logsDir, 'system-check.log'), logMsg);
   // Print to console clearly
   if (status === 'OK') {
-    console.log(`✅  [${service}] ${message}`);
+    console.log(`   [${service}] ${message}`);
   } else {
-    console.error(`❌ [${service}] ${message}${errorStr}`);
+    console.error(`  [${service}] ${message}${errorStr}`);
   }
 }

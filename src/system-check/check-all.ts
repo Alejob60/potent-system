@@ -1,8 +1,8 @@
 import { logSystemCheck } from './logger.util';
 
 async function runChecks() {
-  logSystemCheck('Inicio de auditoría de servicios', 'SystemCheck', 'OK');
-  // Los scripts requieren que sus dependencias estén instaladas en el entorno de ejecución.
+  logSystemCheck('Inicio de auditor a de servicios', 'SystemCheck', 'OK');
+  // Los scripts requieren que sus dependencias est n instaladas en el entorno de ejecuci n.
 
   // PostgreSQL
   await require('./check-postgres');
@@ -25,17 +25,17 @@ async function runChecks() {
   // Application Insights
   await require('./check-app-insights');
 
-  logSystemCheck('Fin de auditoría de servicios', 'SystemCheck', 'OK');
+  logSystemCheck('Fin de auditor a de servicios', 'SystemCheck', 'OK');
 }
 
 if (require.main === module) {
   runChecks()
     .then(() => {
-      logSystemCheck('Auditoría completada correctamente', 'SystemCheck', 'OK');
+      logSystemCheck('Auditor a completada correctamente', 'SystemCheck', 'OK');
       process.exit(0);
     })
     .catch((err) => {
-      logSystemCheck('Auditoría con errores', 'SystemCheck', 'FAIL', err);
+      logSystemCheck('Auditor a con errores', 'SystemCheck', 'FAIL', err);
       process.exit(1);
     });
 }

@@ -1,0 +1,19 @@
+{
+  "campaignType": "product_launch",
+  "sessionId": "test-session-123",
+  "emotion": "excited",
+  "platforms": ["tiktok", "instagram"],
+  "durationDays": 30,
+  "objective": "Maximize engagement",
+  "agents": ["trend-scanner", "scrum-strategy", "video-scriptor", "creative-synthesizer", "content-editor", "post-scheduler", "calendar", "analytics-reporter"],
+  "schedule": {
+    "start": "2025-10-15T00:00:00Z",
+    "end": "2025-11-15T00:00:00Z"
+  },
+  "metadata": {
+    "product": {
+      "name": "Producto Viral",
+      "features": ["característica 1", "característica 2", "característica 3"]
+    }
+  }
+}

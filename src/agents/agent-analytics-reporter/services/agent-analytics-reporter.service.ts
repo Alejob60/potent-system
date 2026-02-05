@@ -11,9 +11,15 @@ export class AgentAnalyticsReporterService {
     private readonly repo: Repository<AgentAnalyticsReporter>,
   ) {}
 
-  async create(dto: CreateAgentAnalyticsReporterDto): Promise<AgentAnalyticsReporter> {
-    // Simulación: reporte analítico generado con datos estadísticos simulados
-    const reportData = { metric: dto.metric || 'engagement', period: dto.period || 'daily', stats: [1,2,3,4] };
+  async create(
+    dto: CreateAgentAnalyticsReporterDto,
+  ): Promise<AgentAnalyticsReporter> {
+    // Simulaci n: reporte anal tico generado con datos estad sticos simulados
+    const reportData = {
+      metric: dto.metric || 'engagement',
+      period: dto.period || 'daily',
+      stats: [1, 2, 3, 4],
+    };
     const entity = this.repo.create({
       ...dto,
       reportData,
@@ -29,4 +35,3 @@ export class AgentAnalyticsReporterService {
     return this.repo.findOneBy({ id });
   }
 }
-

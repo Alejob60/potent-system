@@ -8,5 +8,6 @@ import { AgentPostSchedulerController } from './controllers/agent-post-scheduler
   imports: [TypeOrmModule.forFeature([AgentPostScheduler])],
   providers: [AgentPostSchedulerService],
   controllers: [AgentPostSchedulerController],
+  exports: [AgentPostSchedulerService],
 })
 export class AgentPostSchedulerModule {}

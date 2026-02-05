@@ -1,0 +1,18 @@
+{
+  "runtime": {
+    "os": "linux",
+    "node": "24-lts"
+  },
+  "deploy": {
+    "strategy": "zip",
+    "artifact": "dist"
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "3007"
+  },
+  "scaling": {
+    "instances": 1,
+    "size": "small"
+  }
+}

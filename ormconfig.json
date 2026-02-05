@@ -1,0 +1,24 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "1234",
+  "database": "postgres",
+  "synchronize": false,
+  "logging": false,
+  "entities": [
+    "src/entities/**/*.entity.{ts,js}",
+    "src/agents/**/entities/*.entity.{ts,js}",
+    "src/oauth/entities/*.entity.{ts,js}",
+    "dist/entities/**/*.entity.{ts,js}",
+    "dist/agents/**/entities/*.entity.{ts,js}",
+    "dist/oauth/entities/*.entity.{ts,js}"
+  ],
+  "migrations": [
+    "src/migrations/*.ts"
+  ],
+  "subscribers": [
+    "src/subscriber/**/*.ts"
+  ]
+}

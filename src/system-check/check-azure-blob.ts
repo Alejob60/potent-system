@@ -4,14 +4,25 @@ async function checkAzureBlob() {
   try {
     const connStr = process.env.AZURE_STORAGE_CONNECTION_STRING;
     if (!connStr)
-      throw new Error('AZURE_STORAGE_CONNECTION_STRING no está presente en el entorno');
+      throw new Error(
+        'AZURE_STORAGE_CONNECTION_STRING no est  presente en el entorno',
+      );
     const { BlobServiceClient } = require('@azure/storage-blob');
     const client = BlobServiceClient.fromConnectionString(connStr);
     const iter = client.listContainers();
     await iter.next();
-    logSystemCheck('Conectividad con Azure Blob Storage exitosa', 'AzureBlob', 'OK');
+    logSystemCheck(
+      'Conectividad con Azure Blob Storage exitosa',
+      'AzureBlob',
+      'OK',
+    );
   } catch (error) {
-    logSystemCheck('Fallo conectividad Azure Blob Storage', 'AzureBlob', 'FAIL', error);
+    logSystemCheck(
+      'Fallo conectividad Azure Blob Storage',
+      'AzureBlob',
+      'FAIL',
+      error,
+    );
   }
 }
 

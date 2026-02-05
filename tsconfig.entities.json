@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES2023",
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": false
+  },
+  "include": [
+    "src/entities/**/*.ts",
+    "src/agents/**/entities/*.ts",
+    "src/oauth/entities/*.ts"
+  ]
+}

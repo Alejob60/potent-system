@@ -8,5 +8,6 @@ import { AgentVideoScriptorController } from './controllers/agent-video-scriptor
   imports: [TypeOrmModule.forFeature([AgentVideoScriptor])],
   providers: [AgentVideoScriptorService],
   controllers: [AgentVideoScriptorController],
+  exports: [AgentVideoScriptorService],
 })
 export class AgentVideoScriptorModule {}

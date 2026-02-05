@@ -16,7 +16,12 @@ export function checkAuth() {
     }
     logSystemCheck('Google OAuth config set', 'AuthGoogleOAuth', 'OK');
   } catch (error) {
-    logSystemCheck('Google OAuth config validation failed', 'AuthGoogleOAuth', 'FAIL', error);
+    logSystemCheck(
+      'Google OAuth config validation failed',
+      'AuthGoogleOAuth',
+      'FAIL',
+      error,
+    );
   }
 }
 
