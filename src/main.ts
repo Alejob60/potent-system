@@ -52,7 +52,7 @@ async function bootstrap() {
   // Cookie parser for secure authentication
   app.use(cookieParser());
 
-  // CORS
+  // CORS Configuration
   const origins = process.env.CORS_ORIGINS 
     ? process.env.CORS_ORIGINS.split(',') 
     : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5173'];
@@ -69,6 +69,7 @@ async function bootstrap() {
       'x-tenant-id',
       'X-Meta-User-Context'
     ],
+    exposedHeaders: ['X-Meta-User-Context'],
     preflightContinue: false,
     optionsSuccessStatus: 204,
   });
