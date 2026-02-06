@@ -1,6 +1,14 @@
 import 'reflect-metadata';
 import * as dotenv from 'dotenv';
-dotenv.config({ path: '.env.local' });
+// Load environment variables from multiple sources
+const envFiles = ['.env.local', '.env', '.env.combined'];
+for (const file of envFiles) {
+  try {
+    dotenv.config({ path: file });
+  } catch (error) {
+    console.log(`Environment file ${file} not found, continuing...`);
+  }
+}
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -58,7 +66,8 @@ async function bootstrap() {
       'Authorization', 
       'X-Requested-With', 
       'Accept',
-      'x-tenant-id'
+      'x-tenant-id',
+      'X-Meta-User-Context'
     ],
     preflightContinue: false,
     optionsSuccessStatus: 204,

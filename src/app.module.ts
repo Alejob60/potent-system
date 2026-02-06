@@ -1,7 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+
+// Middleware
+import { ContextMiddleware } from './common/middleware/context.middleware';
 
 // Core Modules
 import { DatabaseModule } from './database/database.module';
@@ -73,4 +76,10 @@ import { ChatController } from './controllers/chat.controller';
     AppService,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(ContextMiddleware)
+      .forRoutes('*');
+  }
+}
